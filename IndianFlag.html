@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Indian Flag</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .flag {
+      width: 450px;
+      height: 300px;
+      border: 2px solid #000;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .band {
+      height: 33.33%;
+      width: 100%;
+    }
+
+    .saffron {
+      background-color: #FF9933;
+    }
+
+    .white {
+      background-color: white;
+      position: relative;
+    }
+
+    .green {
+      background-color: #138808;
+    }
+
+    .chakra {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 80px;
+      width: 80px;
+      border: 2px solid #000080;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+
+    .spoke {
+      position: absolute;
+      width: 2px;
+      height: 40px;
+      background-color: #000080;
+      top: 0;
+      left: 50%;
+      transform-origin: bottom;
+    }
+
+    /* Generate 24 spokes */
+    .chakra .spoke:nth-child(n) {
+      transform: rotate(calc(15deg * (var(--i))));
+    }
+
+    /* Use JS to dynamically create the spokes */
+  </style>
+</head>
+<body>
+
+  <div class="flag">
+    <div class="band saffron"></div>
+    <div class="band white">
+      <div class="chakra" id="chakra"></div>
+    </div>
+    <div class="band green"></div>
+  </div>
+
+  <script>
+    const chakra = document.getElementById('chakra');
+    for (let i = 0; i < 24; i++) {
+      const spoke = document.createElement('div');
+      spoke.className = 'spoke';
+      spoke.style.setProperty('--i', i);
+      chakra.appendChild(spoke);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <h2>Simple Calculator</h2> Number 1: <input id="a"><br><br> Number 2: <input id="b"><br><br> <button
+        onclick="calculate('+')">Add</button> <button onclick="calculate('-')">Subtract</button> <button
+        onclick="calculate('*')">Multiply</button> <button onclick="calculate('/')">Divide</button>
+    <h3 id="result">Result: </h3>
+    <script> function calculate(op) { var x = Number(document.getElementById("a").value); var y = Number(document.getElementById("b").value); var res; var operation; if (op == '+') { res = x + y; operation = "Addition"; } else if (op == '-') { res = x - y; operation = "Subtraction"; } else if (op == '*') { res = x * y; operation = "Multiplication"; } else if (op == '/') { if (y == 0) { document.getElementById("result").innerText = "Cannot divide by 0!"; return; } res = x / y; operation = "Division"; } document.getElementById("result").innerText = operation + " Result: " + res; } </script>
+</body>
+</html>
